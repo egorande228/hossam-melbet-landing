@@ -8,6 +8,290 @@ const trackGaEvent = (eventName, params = {}) => {
   window.gtag('event', eventName, params);
 };
 
+const CONTACT_TEXT = {
+  eng: {
+    phoneTitleTemplate: 'Use digits only, for example {example}',
+    endpointMissing: 'Google Sheets endpoint is not configured yet.',
+    submissionIgnored: 'Submission ignored.',
+    submitting: 'Submitting application...',
+    success: 'Your form has been sent. Our manager will contact you soon.',
+    failed: 'Could not send the form. Please try again in a minute.',
+    validation: {
+      firstNameRequired: 'Please enter first name.',
+      lastNameRequired: 'Please enter last name.',
+      emailRequired: 'Please enter email.',
+      emailInvalid: 'Please enter a valid email.',
+      phoneRequired: 'Please enter phone number.',
+      countryRequired: 'Please enter country.',
+      programRequired: 'Please select a partnership program.',
+      messageRequired: 'Please enter message.',
+      consentRequired: 'Please accept Terms & Conditions.',
+      firstNameInvalid: 'Please enter a valid first name.',
+      lastNameInvalid: 'Please enter a valid last name.',
+      countryInvalid: 'Please enter a valid country.',
+      messageInvalid: 'Please enter a longer message.',
+      phoneInvalid: 'Please enter a valid phone number, digits only (example: {example}).'
+    }
+  },
+  arab: {
+    phoneTitleTemplate: 'استخدم الأرقام فقط، مثال {example}',
+    endpointMissing: 'رابط Google Sheets غير مضبوط بعد.',
+    submissionIgnored: 'تم تجاهل الإرسال.',
+    submitting: 'جار إرسال الطلب...',
+    success: 'تم إرسال النموذج. سيتواصل معك مديرنا قريبا.',
+    failed: 'تعذر إرسال النموذج. حاول مرة أخرى بعد قليل.',
+    validation: {
+      firstNameRequired: 'يرجى إدخال الاسم الأول.',
+      lastNameRequired: 'يرجى إدخال اسم العائلة.',
+      emailRequired: 'يرجى إدخال البريد الإلكتروني.',
+      emailInvalid: 'يرجى إدخال بريد إلكتروني صالح.',
+      phoneRequired: 'يرجى إدخال رقم الهاتف.',
+      countryRequired: 'يرجى إدخال الدولة.',
+      programRequired: 'يرجى اختيار برنامج الشراكة.',
+      messageRequired: 'يرجى إدخال الرسالة.',
+      consentRequired: 'يرجى الموافقة على الشروط والأحكام.',
+      firstNameInvalid: 'يرجى إدخال اسم أول صحيح.',
+      lastNameInvalid: 'يرجى إدخال اسم عائلة صحيح.',
+      countryInvalid: 'يرجى إدخال دولة صحيحة.',
+      messageInvalid: 'يرجى إدخال رسالة أطول.',
+      phoneInvalid: 'يرجى إدخال رقم هاتف صحيح بالأرقام فقط (مثال: {example}).'
+    }
+  },
+  franch: {
+    phoneTitleTemplate: 'Utilisez uniquement des chiffres, par exemple {example}',
+    endpointMissing: 'Le point de terminaison Google Sheets n est pas encore configure.',
+    submissionIgnored: 'Envoi ignore.',
+    submitting: 'Envoi de la demande...',
+    success: 'Votre formulaire a ete envoye. Notre manager vous contactera bientot.',
+    failed: 'Impossible d envoyer le formulaire. Veuillez reessayer dans une minute.',
+    validation: {
+      firstNameRequired: 'Veuillez saisir le prenom.',
+      lastNameRequired: 'Veuillez saisir le nom.',
+      emailRequired: 'Veuillez saisir l email.',
+      emailInvalid: 'Veuillez saisir un email valide.',
+      phoneRequired: 'Veuillez saisir le numero de telephone.',
+      countryRequired: 'Veuillez saisir le pays.',
+      programRequired: 'Veuillez selectionner un programme de partenariat.',
+      messageRequired: 'Veuillez saisir le message.',
+      consentRequired: 'Veuillez accepter les conditions.',
+      firstNameInvalid: 'Veuillez saisir un prenom valide.',
+      lastNameInvalid: 'Veuillez saisir un nom valide.',
+      countryInvalid: 'Veuillez saisir un pays valide.',
+      messageInvalid: 'Veuillez saisir un message plus long.',
+      phoneInvalid: 'Veuillez saisir un numero valide, chiffres uniquement (exemple : {example}).'
+    }
+  },
+  esp: {
+    phoneTitleTemplate: 'Usa solo numeros, por ejemplo {example}',
+    endpointMissing: 'El endpoint de Google Sheets aun no esta configurado.',
+    submissionIgnored: 'Envio ignorado.',
+    submitting: 'Enviando solicitud...',
+    success: 'Tu formulario ha sido enviado. Nuestro gerente se pondra en contacto pronto.',
+    failed: 'No se pudo enviar el formulario. Intentalo de nuevo en un minuto.',
+    validation: {
+      firstNameRequired: 'Introduce el nombre.',
+      lastNameRequired: 'Introduce el apellido.',
+      emailRequired: 'Introduce el correo electronico.',
+      emailInvalid: 'Introduce un correo electronico valido.',
+      phoneRequired: 'Introduce el numero de telefono.',
+      countryRequired: 'Introduce el pais.',
+      programRequired: 'Selecciona un programa de partnership.',
+      messageRequired: 'Introduce el mensaje.',
+      consentRequired: 'Acepta los terminos y condiciones.',
+      firstNameInvalid: 'Introduce un nombre valido.',
+      lastNameInvalid: 'Introduce un apellido valido.',
+      countryInvalid: 'Introduce un pais valido.',
+      messageInvalid: 'Introduce un mensaje mas largo.',
+      phoneInvalid: 'Introduce un telefono valido, solo numeros (ejemplo: {example}).'
+    }
+  },
+  farsi: {
+    phoneTitleTemplate: 'فقط از اعداد استفاده کنید، مثلا {example}',
+    endpointMissing: 'آدرس Google Sheets هنوز تنظیم نشده است.',
+    submissionIgnored: 'ارسال نادیده گرفته شد.',
+    submitting: 'در حال ارسال درخواست...',
+    success: 'فرم شما ارسال شد. مدیر ما به زودی با شما تماس می گیرد.',
+    failed: 'ارسال فرم ممکن نشد. یک دقیقه دیگر دوباره تلاش کنید.',
+    validation: {
+      firstNameRequired: 'لطفا نام را وارد کنید.',
+      lastNameRequired: 'لطفا نام خانوادگی را وارد کنید.',
+      emailRequired: 'لطفا ایمیل را وارد کنید.',
+      emailInvalid: 'لطفا یک ایمیل معتبر وارد کنید.',
+      phoneRequired: 'لطفا شماره تلفن را وارد کنید.',
+      countryRequired: 'لطفا کشور را وارد کنید.',
+      programRequired: 'لطفا برنامه همکاری را انتخاب کنید.',
+      messageRequired: 'لطفا پیام را وارد کنید.',
+      consentRequired: 'لطفا شرایط و قوانین را بپذیرید.',
+      firstNameInvalid: 'لطفا یک نام معتبر وارد کنید.',
+      lastNameInvalid: 'لطفا یک نام خانوادگی معتبر وارد کنید.',
+      countryInvalid: 'لطفا یک کشور معتبر وارد کنید.',
+      messageInvalid: 'لطفا پیام طولانی تری وارد کنید.',
+      phoneInvalid: 'لطفا شماره معتبر فقط با ارقام وارد کنید (مثال: {example}).'
+    }
+  },
+  mongol: {
+    phoneTitleTemplate: 'Зөвхөн цифр ашиглана уу, жишээ нь {example}',
+    endpointMissing: 'Google Sheets endpoint хараахан тохируулагдаагүй байна.',
+    submissionIgnored: 'Илгээлтийг үл тоомсорлов.',
+    submitting: 'Хүсэлт илгээж байна...',
+    success: 'Таны маягт илгээгдлээ. Манай менежер удахгүй холбогдоно.',
+    failed: 'Маягтыг илгээж чадсангүй. Түр хүлээгээд дахин оролдоно уу.',
+    validation: {
+      firstNameRequired: 'Нэрээ оруулна уу.',
+      lastNameRequired: 'Овгоо оруулна уу.',
+      emailRequired: 'Имэйлээ оруулна уу.',
+      emailInvalid: 'Зөв имэйл оруулна уу.',
+      phoneRequired: 'Утасны дугаараа оруулна уу.',
+      countryRequired: 'Улсаа оруулна уу.',
+      programRequired: 'Хамтын ажиллагааны хөтөлбөрөө сонгоно уу.',
+      messageRequired: 'Мессежээ оруулна уу.',
+      consentRequired: 'Нөхцөлийг зөвшөөрнө үү.',
+      firstNameInvalid: 'Зөв нэр оруулна уу.',
+      lastNameInvalid: 'Зөв овог оруулна уу.',
+      countryInvalid: 'Зөв улс оруулна уу.',
+      messageInvalid: 'Илүү урт мессеж оруулна уу.',
+      phoneInvalid: 'Зөвхөн цифртэй зөв утасны дугаар оруулна уу (жишээ: {example}).'
+    }
+  },
+  somali: {
+    phoneTitleTemplate: 'Isticmaal tirooyin kaliya, tusaale ahaan {example}',
+    endpointMissing: 'Google Sheets endpoint wali lama dejin.',
+    submissionIgnored: 'Gudbinta waa la iska indhatiray.',
+    submitting: 'Dalabka waa la dirayaa...',
+    success: 'Foomkaaga waa la diray. Maamulaha ayaa kula soo xiriiri doona dhawaan.',
+    failed: 'Foomka lama diri karin. Fadlan mar kale isku day daqiiqad kadib.',
+    validation: {
+      firstNameRequired: 'Fadlan geli magaca hore.',
+      lastNameRequired: 'Fadlan geli magaca dambe.',
+      emailRequired: 'Fadlan geli iimaylka.',
+      emailInvalid: 'Fadlan geli iimayl sax ah.',
+      phoneRequired: 'Fadlan geli lambarka taleefanka.',
+      countryRequired: 'Fadlan geli dalka.',
+      programRequired: 'Fadlan dooro barnaamijka partnership.',
+      messageRequired: 'Fadlan geli fariinta.',
+      consentRequired: 'Fadlan aqbal shuruudaha.',
+      firstNameInvalid: 'Fadlan geli magac hore oo sax ah.',
+      lastNameInvalid: 'Fadlan geli magac dambe oo sax ah.',
+      countryInvalid: 'Fadlan geli dal sax ah.',
+      messageInvalid: 'Fadlan geli fariin dheer.',
+      phoneInvalid: 'Fadlan geli lambar sax ah, tirooyin keliya (tusaale: {example}).'
+    }
+  },
+  portug: {
+    phoneTitleTemplate: 'Use apenas numeros, por exemplo {example}',
+    endpointMissing: 'O endpoint do Google Sheets ainda nao foi configurado.',
+    submissionIgnored: 'Envio ignorado.',
+    submitting: 'Enviando candidatura...',
+    success: 'Seu formulario foi enviado. Nosso gerente entrara em contato em breve.',
+    failed: 'Nao foi possivel enviar o formulario. Tente novamente em um minuto.',
+    validation: {
+      firstNameRequired: 'Informe o primeiro nome.',
+      lastNameRequired: 'Informe o sobrenome.',
+      emailRequired: 'Informe o email.',
+      emailInvalid: 'Informe um email valido.',
+      phoneRequired: 'Informe o telefone.',
+      countryRequired: 'Informe o pais.',
+      programRequired: 'Selecione um programa de parceria.',
+      messageRequired: 'Informe a mensagem.',
+      consentRequired: 'Aceite os termos e condicoes.',
+      firstNameInvalid: 'Informe um primeiro nome valido.',
+      lastNameInvalid: 'Informe um sobrenome valido.',
+      countryInvalid: 'Informe um pais valido.',
+      messageInvalid: 'Informe uma mensagem mais longa.',
+      phoneInvalid: 'Informe um telefone valido, apenas numeros (exemplo: {example}).'
+    }
+  },
+  amharic: {
+    phoneTitleTemplate: 'ቁጥሮችን ብቻ ይጠቀሙ፣ ለምሳሌ {example}',
+    endpointMissing: 'የGoogle Sheets endpoint ገና አልተዘጋጀም።',
+    submissionIgnored: 'ማስገባቱ ተተውቷል።',
+    submitting: 'ማመልከቻ በመላክ ላይ...',
+    success: 'ቅጽዎ ተልኳል። ማኔጀራችን በቅርቡ ያነጋግርዎታል።',
+    failed: 'ቅጹን መላክ አልተቻለም። እባክዎ ከአንድ ደቂቃ በኋላ ይሞክሩ።',
+    validation: {
+      firstNameRequired: 'እባክዎ የመጀመሪያ ስም ያስገቡ።',
+      lastNameRequired: 'እባክዎ የአያት ስም ያስገቡ።',
+      emailRequired: 'እባክዎ ኢሜይል ያስገቡ።',
+      emailInvalid: 'እባክዎ ትክክለኛ ኢሜይል ያስገቡ።',
+      phoneRequired: 'እባክዎ ስልክ ቁጥር ያስገቡ።',
+      countryRequired: 'እባክዎ አገር ያስገቡ።',
+      programRequired: 'እባክዎ የአጋር ፕሮግራም ይምረጡ።',
+      messageRequired: 'እባክዎ መልእክት ያስገቡ።',
+      consentRequired: 'እባክዎ ውሎችን ይቀበሉ።',
+      firstNameInvalid: 'እባክዎ ትክክለኛ የመጀመሪያ ስም ያስገቡ።',
+      lastNameInvalid: 'እባክዎ ትክክለኛ የአያት ስም ያስገቡ።',
+      countryInvalid: 'እባክዎ ትክክለኛ አገር ያስገቡ።',
+      messageInvalid: 'እባክዎ ረዘም ያለ መልእክት ያስገቡ።',
+      phoneInvalid: 'እባክዎ ትክክለኛ ስልክ ቁጥር ያስገቡ፣ ቁጥሮች ብቻ (ምሳሌ: {example}).'
+    }
+  },
+  turk: {
+    phoneTitleTemplate: 'Yalnizca rakam kullanin, ornegin {example}',
+    endpointMissing: 'Google Sheets endpoint henuz yapilandirilmadi.',
+    submissionIgnored: 'Gonderim yok sayildi.',
+    submitting: 'Basvuru gonderiliyor...',
+    success: 'Formunuz gonderildi. Menajerimiz yakinda sizinle iletisime gececek.',
+    failed: 'Form gonderilemedi. Lutfen bir dakika sonra tekrar deneyin.',
+    validation: {
+      firstNameRequired: 'Lutfen adinizi girin.',
+      lastNameRequired: 'Lutfen soyadinizi girin.',
+      emailRequired: 'Lutfen e-posta girin.',
+      emailInvalid: 'Lutfen gecerli bir e-posta girin.',
+      phoneRequired: 'Lutfen telefon numarasi girin.',
+      countryRequired: 'Lutfen ulke girin.',
+      programRequired: 'Lutfen ortaklik programi secin.',
+      messageRequired: 'Lutfen mesaj girin.',
+      consentRequired: 'Lutfen sartlari kabul edin.',
+      firstNameInvalid: 'Lutfen gecerli bir ad girin.',
+      lastNameInvalid: 'Lutfen gecerli bir soyad girin.',
+      countryInvalid: 'Lutfen gecerli bir ulke girin.',
+      messageInvalid: 'Lutfen daha uzun bir mesaj girin.',
+      phoneInvalid: 'Lutfen yalnizca rakamlardan olusan gecerli bir telefon girin (ornek: {example}).'
+    }
+  },
+  russian: {
+    phoneTitleTemplate: 'Используйте только цифры, например {example}',
+    endpointMissing: 'Endpoint Google Sheets еще не настроен.',
+    submissionIgnored: 'Отправка проигнорирована.',
+    submitting: 'Отправляем заявку...',
+    success: 'Форма отправлена. Наш менеджер скоро свяжется с вами.',
+    failed: 'Не удалось отправить форму. Попробуйте еще раз через минуту.',
+    validation: {
+      firstNameRequired: 'Введите имя.',
+      lastNameRequired: 'Введите фамилию.',
+      emailRequired: 'Введите email.',
+      emailInvalid: 'Введите корректный email.',
+      phoneRequired: 'Введите номер телефона.',
+      countryRequired: 'Введите страну.',
+      programRequired: 'Выберите партнерскую программу.',
+      messageRequired: 'Введите сообщение.',
+      consentRequired: 'Примите условия и положения.',
+      firstNameInvalid: 'Введите корректное имя.',
+      lastNameInvalid: 'Введите корректную фамилию.',
+      countryInvalid: 'Введите корректную страну.',
+      messageInvalid: 'Введите более длинное сообщение.',
+      phoneInvalid: 'Введите корректный номер телефона, только цифры, например {example}.'
+    }
+  }
+};
+
+const getContactLocaleCode = () => {
+  const selectValue = document.getElementById('lang-select')?.value;
+  if (selectValue && CONTACT_TEXT[selectValue]) return selectValue;
+  const htmlLang = document.documentElement.lang;
+  if (htmlLang === 'ar') return 'arab';
+  if (htmlLang === 'ru') return 'russian';
+  return 'eng';
+};
+
+const getContactText = () => CONTACT_TEXT[getContactLocaleCode()] || CONTACT_TEXT.eng;
+
+const formatLocalizedText = (template, replacements = {}) =>
+  Object.entries(replacements).reduce(
+    (result, [key, value]) => result.replaceAll(`{${key}}`, value),
+    template
+  );
+
 const bindContactClicksTracking = () => {
   const links = document.querySelectorAll('a[href]');
   links.forEach((link) => {
@@ -164,7 +448,8 @@ if (partnerForm) {
       if (!lang) continue;
       const parts = lang.split('-');
       if (parts.length > 1 && /^[A-Za-z]{2}$/.test(parts[1])) {
-        return parts[1].toUpperCase();
+        const region = parts[1].toUpperCase();
+        if (COUNTRY_CODES.includes(region)) return region;
       }
     }
     return 'US';
@@ -260,6 +545,7 @@ if (partnerForm) {
 
   const updatePhoneHint = async () => {
     if (!phoneInput) return;
+    const localeText = getContactText();
     const rawCountry = countryInput && countryInput.value ? countryInput.value : '';
     const countryCode = await resolveCountryCode(rawCountry);
     let example = phoneExamples[countryCode];
@@ -270,31 +556,34 @@ if (partnerForm) {
     if (!example) example = '+1 202 555 0147';
     currentPhoneExample = example;
     phoneInput.placeholder = example;
-    phoneInput.title = `Use digits only, for example ${example}`;
+    phoneInput.title = formatLocalizedText(localeText.phoneTitleTemplate, { example });
   };
 
   const validatePayload = (payload) => {
-    if (!payload.first_name) return 'Please enter first name.';
-    if (!payload.last_name) return 'Please enter last name.';
-    if (!payload.email) return 'Please enter email.';
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) return 'Please enter a valid email.';
-    if (!payload.phone) return 'Please enter phone number.';
-    if (!payload.country) return 'Please enter country.';
-    if (!payload.program) return 'Please select a partnership program.';
-    if (!payload.message) return 'Please enter message.';
-    if (!payload.consent) return 'Please accept Terms & Conditions.';
+    const localeText = getContactText();
+    if (!payload.first_name) return localeText.validation.firstNameRequired;
+    if (!payload.last_name) return localeText.validation.lastNameRequired;
+    if (!payload.email) return localeText.validation.emailRequired;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(payload.email)) return localeText.validation.emailInvalid;
+    if (!payload.phone) return localeText.validation.phoneRequired;
+    if (!payload.country) return localeText.validation.countryRequired;
+    if (!payload.program) return localeText.validation.programRequired;
+    if (!payload.message) return localeText.validation.messageRequired;
+    if (!payload.consent) return localeText.validation.consentRequired;
 
     if (!/^[A-Za-z\u0400-\u04FF' -]{2,50}$/.test(payload.first_name)) {
-      return 'Please enter a valid first name.';
+      return localeText.validation.firstNameInvalid;
     }
     if (!/^[A-Za-z\u0400-\u04FF' -]{2,50}$/.test(payload.last_name)) {
-      return 'Please enter a valid last name.';
+      return localeText.validation.lastNameInvalid;
     }
-    if (payload.country.length < 2) return 'Please enter a valid country.';
-    if (payload.message.length < 5) return 'Please enter a longer message.';
+    if (payload.country.length < 2) return localeText.validation.countryInvalid;
+    if (payload.message.length < 5) return localeText.validation.messageInvalid;
     const normalizedPhone = payload.phone.replace(/[\s()-]/g, '');
     if (!/^\+?\d{8,15}$/.test(normalizedPhone)) {
-      return `Please enter a valid phone number, digits only (example: ${currentPhoneExample || getPhoneExample()}).`;
+      return formatLocalizedText(localeText.validation.phoneInvalid, {
+        example: currentPhoneExample || getPhoneExample()
+      });
     }
     return '';
   };
@@ -309,14 +598,15 @@ if (partnerForm) {
     event.preventDefault();
 
     const endpoint = partnerForm.dataset.sheetEndpoint || '';
+    const localeText = getContactText();
     if (!endpoint || endpoint.includes('PASTE_GOOGLE_APPS_SCRIPT_WEBAPP_URL_HERE')) {
-      setStatus('Google Sheets endpoint is not configured yet.', 'is-error');
+      setStatus(localeText.endpointMissing, 'is-error');
       return;
     }
 
     const formData = new FormData(partnerForm);
     if ((formData.get('website') || '').toString().trim() !== '') {
-      setStatus('Submission ignored.', 'is-success');
+      setStatus(localeText.submissionIgnored, 'is-success');
       return;
     }
 
@@ -345,7 +635,7 @@ if (partnerForm) {
     }
 
     setSubmitting(true);
-    setStatus('Submitting application...', 'is-loading');
+    setStatus(localeText.submitting, 'is-loading');
 
     try {
       const controller = new AbortController();
@@ -378,7 +668,7 @@ if (partnerForm) {
         page_location: window.location.href,
         program: payload.program
       });
-      setStatus('Your form has been sent. Our manager will contact you soon.', 'is-success');
+      setStatus(localeText.success, 'is-success');
       partnerForm.reset();
     } catch (error) {
       try {
@@ -393,11 +683,11 @@ if (partnerForm) {
           page_location: window.location.href,
           program: payload.program
         });
-        setStatus('Your form has been sent. Our manager will contact you soon.', 'is-success');
+        setStatus(localeText.success, 'is-success');
         partnerForm.reset();
       } catch (fallbackError) {
         console.error('Form submit error:', error, fallbackError);
-        setStatus('Could not send the form. Please try again in a minute.', 'is-error');
+        setStatus(localeText.failed, 'is-error');
       }
     } finally {
       setSubmitting(false);

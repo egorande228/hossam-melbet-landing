@@ -1687,6 +1687,116 @@ const setHTML = (selector, html) => {
   if (element && typeof html === 'string') element.innerHTML = html;
 };
 
+const parseStatLine = (html) => {
+  if (typeof html !== 'string') return { value: '', label: '' };
+  const valueMatch = html.match(/<strong[^>]*>(.*?)<\/strong>/i);
+  const value = valueMatch ? valueMatch[1].trim() : '';
+  const label = html.replace(/<strong[^>]*>.*?<\/strong>/i, '').replace(/\s+/g, ' ').trim();
+  return { value, label };
+};
+
+const EXTRA_UI = {
+  eng: {
+    languageSelector: 'Language selector',
+    languageLabel: 'Language',
+    phoneTitle: 'Use digits only, for example +79293737172',
+    website: 'Website',
+    quickChat: 'Quick chat',
+    openWhatsApp: 'Open WhatsApp',
+    openTelegram: 'Open Telegram'
+  },
+  arab: {
+    languageSelector: 'اختيار اللغة',
+    languageLabel: 'اللغة',
+    phoneTitle: 'استخدم الأرقام فقط، مثال +79293737172',
+    website: 'الموقع',
+    quickChat: 'دردشة سريعة',
+    openWhatsApp: 'افتح واتساب',
+    openTelegram: 'افتح تيليجرام'
+  },
+  franch: {
+    languageSelector: 'Choix de la langue',
+    languageLabel: 'Langue',
+    phoneTitle: 'Utilisez uniquement des chiffres, par exemple +79293737172',
+    website: 'Site web',
+    quickChat: 'Chat rapide',
+    openWhatsApp: 'Ouvrir WhatsApp',
+    openTelegram: 'Ouvrir Telegram'
+  },
+  esp: {
+    languageSelector: 'Selector de idioma',
+    languageLabel: 'Idioma',
+    phoneTitle: 'Usa solo numeros, por ejemplo +79293737172',
+    website: 'Sitio web',
+    quickChat: 'Chat rapido',
+    openWhatsApp: 'Abrir WhatsApp',
+    openTelegram: 'Abrir Telegram'
+  },
+  farsi: {
+    languageSelector: 'انتخاب زبان',
+    languageLabel: 'زبان',
+    phoneTitle: 'فقط از اعداد استفاده کنید، مثلا +79293737172',
+    website: 'وب سایت',
+    quickChat: 'گفتگوی سریع',
+    openWhatsApp: 'واتساپ را باز کنید',
+    openTelegram: 'تلگرام را باز کنید'
+  },
+  mongol: {
+    languageSelector: 'Хэл сонгох',
+    languageLabel: 'Хэл',
+    phoneTitle: 'Зөвхөн цифр ашиглана уу, жишээ нь +79293737172',
+    website: 'Вэбсайт',
+    quickChat: 'Шуурхай чат',
+    openWhatsApp: 'WhatsApp нээх',
+    openTelegram: 'Telegram нээх'
+  },
+  somali: {
+    languageSelector: 'Dooro luqadda',
+    languageLabel: 'Luqad',
+    phoneTitle: 'Isticmaal tirooyin kaliya, tusaale ahaan +79293737172',
+    website: 'Bogga',
+    quickChat: 'Sheeko degdeg ah',
+    openWhatsApp: 'Fur WhatsApp',
+    openTelegram: 'Fur Telegram'
+  },
+  portug: {
+    languageSelector: 'Seletor de idioma',
+    languageLabel: 'Idioma',
+    phoneTitle: 'Use apenas numeros, por exemplo +79293737172',
+    website: 'Site',
+    quickChat: 'Chat rapido',
+    openWhatsApp: 'Abrir WhatsApp',
+    openTelegram: 'Abrir Telegram'
+  },
+  amharic: {
+    languageSelector: 'ቋንቋ ምረጥ',
+    languageLabel: 'ቋንቋ',
+    phoneTitle: 'ቁጥሮችን ብቻ ይጠቀሙ፣ ለምሳሌ +79293737172',
+    website: 'ድህረ ገጽ',
+    quickChat: 'ፈጣን ቻት',
+    openWhatsApp: 'WhatsApp ክፈት',
+    openTelegram: 'Telegram ክፈት'
+  },
+  turk: {
+    languageSelector: 'Dil secici',
+    languageLabel: 'Dil',
+    phoneTitle: 'Yalnizca rakam kullanin, ornegin +79293737172',
+    website: 'Web sitesi',
+    quickChat: 'Hizli sohbet',
+    openWhatsApp: 'WhatsApp ac',
+    openTelegram: 'Telegram ac'
+  },
+  russian: {
+    languageSelector: 'Выбор языка',
+    languageLabel: 'Язык',
+    phoneTitle: 'Используйте только цифры, например +79293737172',
+    website: 'Сайт',
+    quickChat: 'Быстрый чат',
+    openWhatsApp: 'Открыть WhatsApp',
+    openTelegram: 'Открыть Telegram'
+  }
+};
+
 const updateMeta = (title, description) => {
   if (title) document.title = title;
   const metaDescription = document.querySelector('meta[name="description"]');
@@ -1694,6 +1804,7 @@ const updateMeta = (title, description) => {
 };
 
 const applyCommon = (langData) => {
+  const extra = EXTRA_UI[document.getElementById('lang-select')?.value || 'eng'] || EXTRA_UI.eng;
   document.documentElement.lang = langData.lang || (langData.dir === 'rtl' ? 'ar' : 'en');
   document.documentElement.dir = langData.dir;
 
@@ -1710,6 +1821,11 @@ const applyCommon = (langData) => {
   langData.common.nav.forEach((label, index) => {
     if (navLinks[index]) navLinks[index].textContent = label;
   });
+
+  const langSelect = document.getElementById('lang-select');
+  if (langSelect) langSelect.setAttribute('aria-label', extra.languageSelector);
+  const langLabel = document.querySelector('.lang-switcher .sr-only');
+  if (langLabel) langLabel.textContent = extra.languageLabel;
 };
 
 const applyIndex = (langData) => {
@@ -1952,6 +2068,7 @@ const applyIndex = (langData) => {
   };
   const offer = offerByLang[lang] || offerByLang.eng;
   const visual = visualByLang[lang] || visualByLang.eng;
+  const stats = t.stats.map(parseStatLine);
   updateMeta(t.title, t.description);
 
   setText('.header-inner > .btn.btn-small', t.topCta);
@@ -1966,6 +2083,26 @@ const applyIndex = (langData) => {
   if (heroOffer) heroOffer.setAttribute('aria-label', offer.aria);
   setText('.hero-card-title', t.statsTitle);
   t.stats.forEach((line, index) => setHTML(`.hero-card li:nth-child(${index + 1})`, line));
+  const inlineStats = Array.from(document.querySelectorAll('.hero-inline-stats span'));
+  [0, 2, 3].forEach((statIndex, index) => {
+    if (inlineStats[index] && t.stats[statIndex]) inlineStats[index].innerHTML = t.stats[statIndex];
+  });
+  setText('.hero-dashboard .hero-card-title', t.statsTitle);
+  setText('.hero-dashboard-badge', t.programsKicker);
+  setText('.hero-metric:nth-child(1) .hero-metric-label', stats[1]?.label || '');
+  setText('.hero-metric:nth-child(1) strong', stats[1]?.value || '');
+  setText('.hero-metric:nth-child(2) .hero-metric-label', stats[0]?.label || '');
+  setText('.hero-metric:nth-child(2) strong', stats[0]?.value || '');
+  setText('.hero-program-item:nth-child(1) .hero-program-name', t.programs[0]?.title || '');
+  setText('.hero-program-item:nth-child(1) strong', '25%-50%');
+  setText('.hero-program-item:nth-child(2) .hero-program-name', t.programs[1]?.title || '');
+  setText('.hero-program-item:nth-child(2) strong', '$50');
+  setText('.hero-program-item:nth-child(3) .hero-program-name', t.programs[2]?.title || '');
+  setText('.hero-program-item:nth-child(3) strong', stats[3]?.value || '24/7');
+  const inlineStatsWrap = document.querySelector('.hero-inline-stats');
+  if (inlineStatsWrap) inlineStatsWrap.setAttribute('aria-label', t.statsTitle);
+  const programStrip = document.querySelector('.hero-program-strip');
+  if (programStrip) programStrip.setAttribute('aria-label', t.programsTitle);
   setText('#flow-node-left-text-1', visual.left1);
   setText('#flow-node-left-text-2', visual.left2);
   setText('#flow-node-center-text-1', visual.center1);
@@ -2032,10 +2169,18 @@ const applyIndex = (langData) => {
   setText('#contact .contact-card a:nth-of-type(2)', t.contactLinks[0]);
   setText('#contact .contact-card a:nth-of-type(3)', t.contactLinks[1]);
   setText('#contact .contact-card .btn', t.contactButton);
+  const chatDock = document.querySelector('.chat-dock');
+  if (chatDock) chatDock.setAttribute('aria-label', extra.quickChat);
+  const waLink = document.querySelector('.chat-dock-link-wa');
+  const tgLink = document.querySelector('.chat-dock-link-tg');
+  if (waLink) waLink.setAttribute('aria-label', extra.openWhatsApp);
+  if (tgLink) tgLink.setAttribute('aria-label', extra.openTelegram);
 };
 
 const applyContact = (langData) => {
   const t = langData.contact;
+  const indexTexts = langData.index || {};
+  const extra = EXTRA_UI[document.getElementById('lang-select')?.value || 'eng'] || EXTRA_UI.eng;
   updateMeta(t.title, t.description);
 
   setText('.header-inner > .btn.btn-small', t.topCta);
@@ -2063,18 +2208,30 @@ const applyContact = (langData) => {
 
   const trafficInput = document.querySelector('input[name="traffic_source"]');
   const messageInput = document.querySelector('textarea[name="message"]');
+  const phoneInput = document.querySelector('input[name="phone"]');
   if (trafficInput) trafficInput.setAttribute('placeholder', t.placeholders.traffic);
   if (messageInput) messageInput.setAttribute('placeholder', t.placeholders.message);
+  if (phoneInput) phoneInput.setAttribute('title', extra.phoneTitle);
 
   const options = Array.from(document.querySelectorAll('select[name="program"] option'));
   t.programOptions.forEach((optionText, index) => {
     if (options[index]) options[index].textContent = optionText;
   });
 
+  const websiteLabel = document.querySelector('input[name="website"]')?.closest('label')?.querySelector('span');
+  if (websiteLabel) websiteLabel.textContent = extra.website;
   setHTML('.consent span', t.consentMain);
   setText('.consent-optional span', t.consentOptional);
   setText('.form-actions .btn[type="submit"]', t.actions[0]);
   setText('.form-actions .btn-ghost', t.actions[1]);
+  const chatDock = document.querySelector('.chat-dock');
+  if (chatDock) chatDock.setAttribute('aria-label', extra.quickChat);
+  setText('.chat-dock-link-wa', indexTexts.contactLinks?.[1] || 'WhatsApp');
+  setText('.chat-dock-link-tg', indexTexts.contactLinks?.[0] || 'Telegram');
+  const waLink = document.querySelector('.chat-dock-link-wa');
+  const tgLink = document.querySelector('.chat-dock-link-tg');
+  if (waLink) waLink.setAttribute('aria-label', extra.openWhatsApp);
+  if (tgLink) tgLink.setAttribute('aria-label', extra.openTelegram);
 };
 
 let activeLang = null;
@@ -2113,16 +2270,6 @@ const startI18n = () => {
   const savedLang = localStorage.getItem(LANG_STORAGE_KEY);
   const lang = SUPPORTED_LANGS.includes(savedLang) ? savedLang : 'eng';
   initLanguageSelector();
-
-  if (lang === 'eng') {
-    const selector = document.getElementById('lang-select');
-    if (selector) selector.value = 'eng';
-    document.documentElement.lang = 'en';
-    document.documentElement.dir = 'ltr';
-    activeLang = 'eng';
-    return;
-  }
-
   applyLanguage(lang);
 };
 
