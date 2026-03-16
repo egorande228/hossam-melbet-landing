@@ -155,7 +155,7 @@ const I18N = {
         },
         {
           q: 'How can I contact the partnerships team?',
-          a: 'You can contact our partner support team via email and Telegram or by list of contacts down in the contact section.'
+          a: 'You can contact our partner support team via Telegram using the contact section below.'
         },
         {
           q: 'How long does the application approval process take?',
@@ -168,7 +168,7 @@ const I18N = {
         'Join our network of successful partners today and start building your revenue stream with one of the industry\'s most rewarding partnership programs.',
       contactCopy2:
         'Ready to apply? Open the partner application form on a dedicated page and submit your details in minutes.',
-      contactLinks: ['Telegram', 'WhatsApp'],
+      contactLinks: ['Telegram'],
       contactButton: 'Apply Now'
     },
     contact: {
@@ -425,14 +425,14 @@ const I18N = {
         { q: 'Quelles banques e-paiement sont supportees?', a: 'E-wallets, virements bancaires et cartes prepayees selon votre region.' },
         { q: 'Quand recois-je les commissions?', a: 'Paiements reguliers selon planning convenu, avec suivi dans le tableau de bord.' },
         { q: 'Quels sont les moyens de retrait?', a: 'Virements bancaires, e-wallets et autres options locales selon le pays.' },
-        { q: 'Comment contacter l\'equipe partenariats?', a: 'Par email, Telegram ou via la section Contact.' },
+        { q: 'Comment contacter l\'equipe partenariats?', a: 'Via Telegram depuis la section Contact.' },
         { q: 'Delai d\'approbation?', a: 'En general sous 24h, parfois plus selon la verification.' }
       ],
       contactKicker: 'Contact',
       contactTitle: 'Pret a gagner avec Melbet?',
       contactCopy1: 'Rejoignez notre reseau de partenaires performants et developpez vos revenus.',
       contactCopy2: 'Remplissez le formulaire en quelques minutes.',
-      contactLinks: ['Telegram', 'WhatsApp'],
+      contactLinks: ['Telegram'],
       contactButton: 'Postuler maintenant'
     },
     contact: {
@@ -554,14 +554,14 @@ const I18N = {
         { q: 'ከምን ዓይነት e-payment ባንኮች ጋር ልስራ?', a: 'e-wallets፣ bank transfer እና prepaid ካርዶች እንደ አካባቢዎ ይገኛሉ።' },
         { q: 'ኮሚሽን መቼ እቀበላለሁ?', a: 'በተስማማ የክፍያ ሰሌዳ መሰረት በመደበኛነት ይከፈላል።' },
         { q: 'የማውጫ መንገዶች ምን ናቸው?', a: 'bank transfer፣ e-wallet እና የአካባቢ አማራጮች በአገር መሠረት ይገኛሉ።' },
-        { q: 'ከፓርትነር ቡድን ጋር እንዴት እገናኛለሁ?', a: 'በኢሜይል፣ Telegram ወይም በContact ክፍል ያሉ መንገዶች መጠቀም ይችላሉ።' },
+        { q: 'ከፓርትነር ቡድን ጋር እንዴት እገናኛለሁ?', a: 'በContact ክፍል ውስጥ ባለው Telegram መገናኛ መንገድ ይገናኙ።' },
         { q: 'ማመልከቻ ስንት ጊዜ ይወስዳል?', a: 'በአብዛኛው በ24 ሰዓት ውስጥ ይፈቀዳል፣ አንዳንድ ጊዜ ተጨማሪ ምርመራ ሊፈልግ ይችላል።' }
       ],
       contactKicker: 'ኮንታክት',
       contactTitle: 'ከMelbet ጋር ገቢ ለመጀመር ዝግጁ ነህ?',
       contactCopy1: 'ዛሬ ከተሳካ አጋሮቻችን ኔትወርክ ጋር ተቀላቀል።',
       contactCopy2: 'በተለየ ገጽ ያለውን ቅጽ በደቂቃዎች ይሙሉ።',
-      contactLinks: ['Telegram', 'WhatsApp'],
+      contactLinks: ['Telegram'],
       contactButton: 'አሁን አመልክት'
     },
     contact: {
@@ -766,7 +766,7 @@ registerLocale('esp', 'eng', {
       },
       {
         q: 'Como contacto al equipo de partnerships?',
-        a: 'Puedes escribir por email, Telegram o usar los contactos de la seccion Contacto.'
+        a: 'Puedes escribir por Telegram usando la seccion Contacto.'
       },
       {
         q: 'Cuanto tarda la aprobacion de la solicitud?',
@@ -779,7 +779,7 @@ registerLocale('esp', 'eng', {
       'Unete hoy a nuestra red de socios exitosos y empieza a construir un flujo de ingresos estable.',
     contactCopy2:
       'Listo para aplicar? Abre el formulario de socios en la pagina dedicada y envia tus datos en pocos minutos.',
-    contactLinks: ['Telegram', 'WhatsApp'],
+    contactLinks: ['Telegram'],
     contactButton: 'Aplicar ahora'
   },
   contact: {
@@ -907,7 +907,7 @@ registerLocale('farsi', 'eng', {
       { q: 'با چه بانک ها یا روش هایی می توان کار کرد؟', a: 'با e-wallet، حواله بانکی و کارت های پیش پرداخت بر اساس کشور شما.' },
       { q: 'کمیسیون ها چه زمانی پرداخت می شود؟', a: 'پرداخت ها طبق برنامه توافقی انجام می شود؛ معمولاً هفتگی یا ماهانه.' },
       { q: 'روش های برداشت چیست؟', a: 'حواله بانکی، کیف پول الکترونیک و روش های محلی بسته به کشور در دسترس است.' },
-      { q: 'چطور با تیم همکاری تماس بگیرم؟', a: 'از طریق ایمیل، Telegram یا بخش Contact سایت.' },
+      { q: 'چطور با تیم همکاری تماس بگیرم؟', a: 'از طریق تلگرام در بخش Contact سایت.' },
       { q: 'تایید درخواست چقدر طول می کشد؟', a: 'معمولاً ظرف 24 ساعت انجام می شود؛ گاهی کمی بیشتر.' }
     ],
     contactKicker: 'تماس',
@@ -1039,14 +1039,14 @@ registerLocale('mongol', 'eng', {
       { q: 'Ямар e-payment аргуудтай ажиллах вэ?', a: 'e-wallet, банк шилжүүлэг, prepaid карт зэргийг улсдаа ашиглана.' },
       { q: 'Шимтгэлийг хэзээ авдаг вэ?', a: 'Тохиролцсон хуваарийн дагуу долоо хоног бүр эсвэл сар бүр төлөгдөнө.' },
       { q: 'Ямар withdraw аргууд байдаг вэ?', a: 'Банк, e-wallet, орон нутгийн арга зэргийг улсаас хамааран ашиглана.' },
-      { q: 'Partnership багтай яаж холбогдох вэ?', a: 'Имэйл, Telegram эсвэл Contact хэсгээр холбогдоно.' },
+      { q: 'Partnership багтай яаж холбогдох вэ?', a: 'Contact хэсгийн Telegram холбоосоор холбогдоно.' },
       { q: 'Заявкын баталгаажуулалт хэр удаан вэ?', a: 'Ихэвчлэн 24 цагт, зарим үед арай удаж болно.' }
     ],
     contactKicker: 'Холбоо барих',
     contactTitle: 'Melbet-тэй орлого эхлүүлэхэд бэлэн үү?',
     contactCopy1: 'Амжилттай түншүүдийн сүлжээнд нэгдэж тогтвортой орлогоо өнөөдрөөс эхлүүл.',
     contactCopy2: 'Өргөдлийн хуудсыг нээгээд мэдээллээ хэдхэн минутын дотор илгээнэ үү.',
-    contactLinks: ['Telegram', 'WhatsApp'],
+    contactLinks: ['Telegram'],
     contactButton: 'Одоо хүсэлт гаргах'
   },
   contact: {
@@ -1172,14 +1172,14 @@ registerLocale('somali', 'eng', {
       { q: 'Bangiyo noocee ah ayaan la shaqayn karaa?', a: 'e-wallets, bank transfer iyo prepaid cards iyadoo ku xiran dalkaaga.' },
       { q: 'Goorma ayaan helaa komishanka?', a: 'Lacag-bixinta waxay ku socotaa jadwal la isku raacay (todobaadle ama bille).' },
       { q: 'Waa maxay hababka bixinta?', a: 'Bank transfer, e-wallets iyo habab maxalli ah.' },
-      { q: 'Sideen ula xiriiraa partnerships team?', a: 'Email, Telegram ama qaybta Contact ee website-ka.' },
+      { q: 'Sideen ula xiriiraa partnerships team?', a: 'Telegram ka isticmaal qaybta Contact ee website-ka.' },
       { q: 'Muddo intee le eg ayuu qaataa ansixinta?', a: 'Badanaa 24 saac gudahood, mararka qaar wax yar ka badan.' }
     ],
     contactKicker: 'La xiriir',
     contactTitle: 'Diyaar ma u tahay inaad Melbet kula bilowdo dakhli?',
     contactCopy1: 'Ku biir shabakadeena wada-hawlgalayaasha guuleysta oo maanta bilow dhisidda dakhli joogto ah.',
     contactCopy2: 'Diyaar ma tahay? Fur foomka codsiga oo ku dir xogtaada daqiiqado gudahood.',
-    contactLinks: ['Telegram', 'WhatsApp'],
+    contactLinks: ['Telegram'],
     contactButton: 'Hadda codso'
   },
   contact: {
@@ -1305,14 +1305,14 @@ registerLocale('portug', 'eng', {
       { q: 'Com quais bancos/metodos posso trabalhar?', a: 'e-wallets, transferencias bancarias e cartoes pre-pagos conforme o pais.' },
       { q: 'Quando recebo minhas comissoes?', a: 'Pagamentos conforme cronograma acordado, semanal ou mensal.' },
       { q: 'Quais metodos de saque estao disponiveis?', a: 'Transferencia bancaria, e-wallet e metodos locais.' },
-      { q: 'Como falar com o time de parcerias?', a: 'Por email, Telegram ou contatos na secao Contact.' },
+      { q: 'Como falar com o time de parcerias?', a: 'Por Telegram na secao Contact.' },
       { q: 'Quanto tempo leva a aprovacao?', a: 'Normalmente em 24 horas; em alguns casos pode demorar um pouco mais.' }
     ],
     contactKicker: 'Contato',
     contactTitle: 'Pronto para comecar a ganhar com a Melbet?',
     contactCopy1: 'Junte-se hoje a nossa rede de parceiros de sucesso e construa sua renda.',
     contactCopy2: 'Pronto para aplicar? Abra o formulario de parceria e envie seus dados em minutos.',
-    contactLinks: ['Telegram', 'WhatsApp'],
+    contactLinks: ['Telegram'],
     contactButton: 'Aplicar agora'
   },
   contact: {
@@ -1438,14 +1438,14 @@ registerLocale('turk', 'eng', {
       { q: 'Hangi e-payment bankalariyla calisabilirim?', a: 'e-wallet, banka transferi ve on odemeli kartlarla calisabilirsiniz.' },
       { q: 'Komisyonlar ne zaman odenir?', a: 'Anlasilan odeme takvimine gore haftalik veya aylik odeme yapilir.' },
       { q: 'Hangi cekim yontemleri mevcut?', a: 'Banka transferi, e-wallet ve yerel yontemler ulkeye gore sunulur.' },
-      { q: 'Partnership ekibine nasil ulasirim?', a: 'Email, Telegram veya Contact bolumundeki iletisimlerden ulasabilirsiniz.' },
+      { q: 'Partnership ekibine nasil ulasirim?', a: 'Contact bolumundeki Telegram iletisimi uzerinden ulasabilirsiniz.' },
       { q: 'Basvuru onayi ne kadar surer?', a: 'Genellikle 24 saat icinde, bazen biraz daha uzun surebilir.' }
     ],
     contactKicker: 'Iletisim',
     contactTitle: 'Melbet ile kazanmaya baslamaya hazir misiniz?',
     contactCopy1: 'Basarili ortak agimiza katilin ve duzenli gelir akisinizi bugun kurmaya baslayin.',
     contactCopy2: 'Hazirsaniz formu acin ve bilgilerinizi dakikalar icinde gonderin.',
-    contactLinks: ['Telegram', 'WhatsApp'],
+    contactLinks: ['Telegram'],
     contactButton: 'Simdi basvur'
   },
   contact: {
@@ -1629,7 +1629,7 @@ registerLocale('russian', 'eng', {
       },
       {
         q: 'Как связаться с командой partnerships?',
-        a: 'Через email, Telegram или контакты в разделе Contact на сайте.'
+        a: 'Через Telegram в разделе Contact на сайте.'
       },
       {
         q: 'Сколько длится рассмотрение заявки?',
@@ -1640,7 +1640,7 @@ registerLocale('russian', 'eng', {
     contactTitle: 'Готовы начать зарабатывать с Melbet?',
     contactCopy1: 'Присоединяйтесь к нашей сети успешных партнеров и начните строить стабильный доход.',
     contactCopy2: 'Готовы подать заявку? Откройте форму на отдельной странице и отправьте данные за пару минут.',
-    contactLinks: ['Telegram', 'WhatsApp'],
+    contactLinks: ['Telegram'],
     contactButton: 'Подать заявку'
   },
   contact: {
@@ -2173,7 +2173,6 @@ const applyIndex = (langData) => {
   if (chatDock) chatDock.setAttribute('aria-label', extra.quickChat);
   const waLink = document.querySelector('.chat-dock-link-wa');
   const tgLink = document.querySelector('.chat-dock-link-tg');
-  if (waLink) waLink.setAttribute('aria-label', extra.openWhatsApp);
   if (tgLink) tgLink.setAttribute('aria-label', extra.openTelegram);
 };
 
@@ -2226,11 +2225,9 @@ const applyContact = (langData) => {
   setText('.form-actions .btn-ghost', t.actions[1]);
   const chatDock = document.querySelector('.chat-dock');
   if (chatDock) chatDock.setAttribute('aria-label', extra.quickChat);
-  setText('.chat-dock-link-wa', indexTexts.contactLinks?.[1] || 'WhatsApp');
   setText('.chat-dock-link-tg', indexTexts.contactLinks?.[0] || 'Telegram');
   const waLink = document.querySelector('.chat-dock-link-wa');
   const tgLink = document.querySelector('.chat-dock-link-tg');
-  if (waLink) waLink.setAttribute('aria-label', extra.openWhatsApp);
   if (tgLink) tgLink.setAttribute('aria-label', extra.openTelegram);
 };
 
