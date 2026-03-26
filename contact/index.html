@@ -40,6 +40,49 @@
         }
       }
     </script>
+    <script>
+      (function () {
+        const langStorageKey = 'melbet_lang';
+        const visitorStorageKey = 'melbet_returning_visitor';
+        const isoLangMap = {
+          eng: 'en',
+          arab: 'ar',
+          franch: 'fr',
+          esp: 'es',
+          farsi: 'fa',
+          mongol: 'mn',
+          somali: 'so',
+          portug: 'pt',
+          amharic: 'am',
+          turk: 'tr',
+          russian: 'ru'
+        };
+
+        let rawLanguage = 'eng';
+        let userType = 'new_visitor';
+        try {
+          rawLanguage = localStorage.getItem(langStorageKey) || 'eng';
+          userType = localStorage.getItem(visitorStorageKey) ? 'returning_visitor' : 'new_visitor';
+          localStorage.setItem(visitorStorageKey, '1');
+        } catch (_) {}
+        const contentLanguage = isoLangMap[rawLanguage] || 'en';
+        const targetCountry = rawLanguage === 'mongol' ? 'mongolia' : 'unknow';
+        window.__melbetTrackingContext = {
+          rawLanguage,
+          contentLanguage,
+          targetCountry,
+          pageType: 'contact',
+          userType
+        };
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          content_language: contentLanguage,
+          target_country: targetCountry,
+          page_type: 'contact',
+          user_type: userType
+        });
+      })();
+    </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-74E6Q81VMT"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -232,12 +275,15 @@
         href="https://t.me/team_cash_melbet_bot"
         target="_blank"
         rel="noopener noreferrer"
+        data-track-telegram
+        data-cta-location="footer"
         aria-label="Open Telegram"
         >Telegram</a
       >
     </aside>
 
     <script src="./js/i18n.js?v=14"></script>
-    <script src="./js/contact.js?v=16"></script>
+    <script src="./js/tracking.js?v=1"></script>
+    <script src="./js/contact.js?v=17"></script>
   </body>
 </html>

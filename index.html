@@ -50,6 +50,49 @@
         "url": "https://paypartnersmelbet.com/"
       }
     </script>
+    <script>
+      (function () {
+        const langStorageKey = 'melbet_lang';
+        const visitorStorageKey = 'melbet_returning_visitor';
+        const isoLangMap = {
+          eng: 'en',
+          arab: 'ar',
+          franch: 'fr',
+          esp: 'es',
+          farsi: 'fa',
+          mongol: 'mn',
+          somali: 'so',
+          portug: 'pt',
+          amharic: 'am',
+          turk: 'tr',
+          russian: 'ru'
+        };
+
+        let rawLanguage = 'eng';
+        let userType = 'new_visitor';
+        try {
+          rawLanguage = localStorage.getItem(langStorageKey) || 'eng';
+          userType = localStorage.getItem(visitorStorageKey) ? 'returning_visitor' : 'new_visitor';
+          localStorage.setItem(visitorStorageKey, '1');
+        } catch (_) {}
+        const contentLanguage = isoLangMap[rawLanguage] || 'en';
+        const targetCountry = rawLanguage === 'mongol' ? 'mongolia' : 'unknow';
+        window.__melbetTrackingContext = {
+          rawLanguage,
+          contentLanguage,
+          targetCountry,
+          pageType: 'landing_page',
+          userType
+        };
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          content_language: contentLanguage,
+          target_country: targetCountry,
+          page_type: 'landing_page',
+          user_type: userType
+        });
+      })();
+    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-74E6Q81VMT"></script>
     <script>
@@ -115,7 +158,7 @@
           </select>
         </div>
 
-        <a class="btn btn-small" href="./contact">Start Earning Today</a>
+        <a class="btn btn-small" href="./contact" data-track-cta data-partner-program="general" data-cta-location="navbar">Start Earning Today</a>
       </div>
     </header>
 
@@ -136,10 +179,10 @@
             </div>
             <div class="hero-cta-stack">
               <div class="hero-actions">
-                <a class="btn" href="./contact">Start Earning Today</a>
-                <a class="btn btn-ghost" href="#programs">Our Partnership Programs</a>
+                <a class="btn" href="./contact" data-track-cta data-partner-program="general" data-cta-location="hero">Start Earning Today</a>
+                <a class="btn btn-ghost" href="#programs" data-track-cta data-partner-program="general" data-cta-location="hero">Our Partnership Programs</a>
               </div>
-              <a class="hero-offer" href="https://melbet.org/ru?tag=d_4678585m_2170c_MBVIP2026" aria-label="Get 120 percent deposit bonus" target="_blank" rel="noopener noreferrer">
+              <a class="hero-offer" href="https://melbet.org/ru?tag=d_4678585m_2170c_MBVIP2026" aria-label="Get 120 percent deposit bonus" target="_blank" rel="noopener noreferrer" data-track-outbound-bonus>
                 <span class="hero-offer-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" role="presentation">
                     <path
@@ -232,7 +275,7 @@
                 <li>Demo accounts available for marketing purposes ($2,000-$10,000)</li>
                 <li>CPA Program: $10 direct bonus for each qualifying player</li>
               </ul>
-              <a class="program-cta-link" href="./contact">Join Affiliate Program</a>
+              <a class="program-cta-link" href="./contact" data-track-cta data-partner-program="affiliate" data-cta-location="programs_section">Join Affiliate Program</a>
             </article>
             <article class="card card-program card-program-shift">
               <div class="program-media program-media-flow is-animating" aria-hidden="true">
@@ -286,7 +329,7 @@
                 <li>Must be 18+ years old</li>
                 <li>Be the trusted local payment solution for our platform</li>
               </ul>
-              <a class="program-cta-link" href="./contact">Join Teamcash program</a>
+              <a class="program-cta-link" href="./contact" data-track-cta data-partner-program="teamcash" data-cta-location="programs_section">Join Teamcash program</a>
             </article>
             <article class="card card-program">
               <div class="program-media program-media-epay is-animating" aria-hidden="true">
@@ -311,7 +354,7 @@
                 <li>Access to dedicated support team for technical issues</li>
                 <li>Real-time reporting and analytics dashboard</li>
               </ul>
-              <a class="program-cta-link" href="./contact">Join E-payment Program</a>
+              <a class="program-cta-link" href="./contact" data-track-cta data-partner-program="epayment" data-cta-location="programs_section">Join E-payment Program</a>
             </article>
           </div>
         </div>
@@ -556,8 +599,8 @@
             </p>
           </div>
           <div class="contact-card">
-            <a href="https://t.me/team_cash_melbet_bot" target="_blank" rel="noopener noreferrer">Telegram</a>
-            <a class="btn" href="./contact">Apply Now</a>
+            <a href="https://t.me/team_cash_melbet_bot" target="_blank" rel="noopener noreferrer" data-track-telegram data-cta-location="contact_section">Telegram</a>
+            <a class="btn" href="./contact" data-track-cta data-partner-program="general" data-cta-location="contact_section">Apply Now</a>
           </div>
         </div>
       </section>
@@ -569,12 +612,15 @@
         href="https://t.me/team_cash_melbet_bot"
         target="_blank"
         rel="noopener noreferrer"
+        data-track-telegram
+        data-cta-location="footer"
         aria-label="Open Telegram"
         >Telegram</a
       >
     </aside>
 
     <script src="./js/i18n.js?v=14"></script>
+    <script src="./js/tracking.js?v=1"></script>
     <script src="./js/main.js?v=10"></script>
   </body>
 </html>

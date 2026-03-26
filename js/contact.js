@@ -668,6 +668,9 @@ if (partnerForm) {
         page_location: window.location.href,
         program: payload.program
       });
+      if (window.MelbetTracking?.pushFormSubmit) {
+        window.MelbetTracking.pushFormSubmit(payload);
+      }
       setStatus(localeText.success, 'is-success');
       partnerForm.reset();
     } catch (error) {
@@ -683,6 +686,9 @@ if (partnerForm) {
           page_location: window.location.href,
           program: payload.program
         });
+        if (window.MelbetTracking?.pushFormSubmit) {
+          window.MelbetTracking.pushFormSubmit(payload);
+        }
         setStatus(localeText.success, 'is-success');
         partnerForm.reset();
       } catch (fallbackError) {
