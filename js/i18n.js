@@ -2069,6 +2069,7 @@ const applyIndex = (langData) => {
   const offer = offerByLang[lang] || offerByLang.eng;
   const visual = visualByLang[lang] || visualByLang.eng;
   const stats = t.stats.map(parseStatLine);
+  const extra = EXTRA_UI[lang] || EXTRA_UI.eng;
   updateMeta(t.title, t.description);
 
   setText('.header-inner > .btn.btn-small', t.topCta);
@@ -2166,12 +2167,10 @@ const applyIndex = (langData) => {
   setText('#contact .section-kicker', t.contactKicker);
   setText('#contact h2', t.contactTitle);
   setText('#contact .contact-grid > div p:nth-of-type(1)', t.contactCopy1);
-  setText('#contact .contact-card a:nth-of-type(2)', t.contactLinks[0]);
-  setText('#contact .contact-card a:nth-of-type(3)', t.contactLinks[1]);
+  setText('#contact .contact-card a:nth-of-type(1)', t.contactLinks[0]);
   setText('#contact .contact-card .btn', t.contactButton);
   const chatDock = document.querySelector('.chat-dock');
   if (chatDock) chatDock.setAttribute('aria-label', extra.quickChat);
-  const waLink = document.querySelector('.chat-dock-link-wa');
   const tgLink = document.querySelector('.chat-dock-link-tg');
   if (tgLink) tgLink.setAttribute('aria-label', extra.openTelegram);
 };
@@ -2226,7 +2225,6 @@ const applyContact = (langData) => {
   const chatDock = document.querySelector('.chat-dock');
   if (chatDock) chatDock.setAttribute('aria-label', extra.quickChat);
   setText('.chat-dock-link-tg', indexTexts.contactLinks?.[0] || 'Telegram');
-  const waLink = document.querySelector('.chat-dock-link-wa');
   const tgLink = document.querySelector('.chat-dock-link-tg');
   if (tgLink) tgLink.setAttribute('aria-label', extra.openTelegram);
 };
