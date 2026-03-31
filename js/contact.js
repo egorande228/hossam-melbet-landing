@@ -3,11 +3,6 @@ const nav = document.querySelector('.site-nav');
 const navLinks = Array.from(document.querySelectorAll('.site-nav a'));
 const revealItems = document.querySelectorAll('.reveal');
 
-const trackGaEvent = (eventName, params = {}) => {
-  if (typeof window.gtag !== 'function') return;
-  window.gtag('event', eventName, params);
-};
-
 const CONTACT_TEXT = {
   eng: {
     phoneTitleTemplate: 'Use digits only, for example {example}',
@@ -291,31 +286,6 @@ const formatLocalizedText = (template, replacements = {}) =>
     (result, [key, value]) => result.replaceAll(`{${key}}`, value),
     template
   );
-
-const bindContactClicksTracking = () => {
-  const links = document.querySelectorAll('a[href]');
-  links.forEach((link) => {
-    const href = (link.getAttribute('href') || '').toLowerCase();
-    if (href.includes('wa.me/')) {
-      link.addEventListener('click', () => {
-        trackGaEvent('click_whatsapp', {
-          link_url: link.href,
-          page_location: window.location.href
-        });
-      });
-    }
-    if (href.includes('t.me/')) {
-      link.addEventListener('click', () => {
-        trackGaEvent('click_telegram', {
-          link_url: link.href,
-          page_location: window.location.href
-        });
-      });
-    }
-  });
-};
-
-bindContactClicksTracking();
 
 if (menuToggle && nav) {
   menuToggle.addEventListener('click', () => {
@@ -663,11 +633,6 @@ if (partnerForm) {
         throw new Error(parsed.error || 'Sheets endpoint returned an error');
       }
 
-      trackGaEvent('form_sent', {
-        form_name: 'partner_form',
-        page_location: window.location.href,
-        program: payload.program
-      });
       if (window.MelbetTracking?.pushFormSubmit) {
         window.MelbetTracking.pushFormSubmit(payload);
       }
@@ -680,11 +645,6 @@ if (partnerForm) {
           method: 'POST',
           mode: 'no-cors',
           body: JSON.stringify(payload)
-        });
-        trackGaEvent('form_sent', {
-          form_name: 'partner_form',
-          page_location: window.location.href,
-          program: payload.program
         });
         if (window.MelbetTracking?.pushFormSubmit) {
           window.MelbetTracking.pushFormSubmit(payload);

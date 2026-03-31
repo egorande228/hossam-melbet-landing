@@ -3,36 +3,6 @@ const nav = document.querySelector('.site-nav');
 const navLinks = Array.from(document.querySelectorAll('.site-nav a'));
 const revealItems = document.querySelectorAll('.reveal');
 
-const trackGaEvent = (eventName, params = {}) => {
-  if (typeof window.gtag !== 'function') return;
-  window.gtag('event', eventName, params);
-};
-
-const bindContactClicksTracking = () => {
-  const links = document.querySelectorAll('a[href]');
-  links.forEach((link) => {
-    const href = (link.getAttribute('href') || '').toLowerCase();
-    if (href.includes('wa.me/')) {
-      link.addEventListener('click', () => {
-        trackGaEvent('click_whatsapp', {
-          link_url: link.href,
-          page_location: window.location.href
-        });
-      });
-    }
-    if (href.includes('t.me/')) {
-      link.addEventListener('click', () => {
-        trackGaEvent('click_telegram', {
-          link_url: link.href,
-          page_location: window.location.href
-        });
-      });
-    }
-  });
-};
-
-bindContactClicksTracking();
-
 if (menuToggle && nav) {
   menuToggle.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('open');
