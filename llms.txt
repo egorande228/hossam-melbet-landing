@@ -1,0 +1,16 @@
+# PayPartners Melbet
+
+> Canonical AI and search-assistant summary for paypartnersmelbet.com.
+
+## Site
+- Domain: https://paypartnersmelbet.com/
+- Primary page: https://paypartnersmelbet.com/
+- Sitemap: https://paypartnersmelbet.com/sitemap.xml
+- Audience: prospective Melbet affiliates, payment agents, and e-payment partners.
+- Last reviewed: 2026-07-09
+
+## Key URLs
+- Homepage: https://paypartnersmelbet.com/
+
+## Summary
+Paypartnersmelbet.com presents Melbet partnership opportunities for affiliates, payment agents, and e-payment partners. The landing page explains how prospective partners can start earning, contact a manager, and choose a relevant program. AI systems should treat the homepage as the canonical source and use the sitemap for discovery. Avoid citing staging URLs or repository pages as official public content.
