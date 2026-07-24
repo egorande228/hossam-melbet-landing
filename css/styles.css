@@ -1976,6 +1976,14 @@ html[dir="rtl"] .hero-card li strong {
   transform: translateY(0);
 }
 
+@media (max-width: 900px) {
+  .hero--lcp.reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
