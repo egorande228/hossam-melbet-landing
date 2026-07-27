@@ -8,6 +8,7 @@
       name="description"
       content="Submit the MelBet partnership application form for affiliate, Teamcash, or e-payment opportunities. Our team reviews each request and follows up."
     />
+    <meta name="author" content="MelBet Partnerships team" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://paypartnersmelbet.com/contact" />
     <meta property="og:type" content="website" />
@@ -35,6 +36,11 @@
         "name": "MelBet Partnerships Contact Form",
         "url": "https://paypartnersmelbet.com/contact",
         "description": "Submit the MelBet partnership application form for affiliate, Teamcash, or e-payment opportunities.",
+        "author": {
+          "@type": "Organization",
+          "name": "MelBet Partnerships"
+        },
+        "dateModified": "2026-07-25",
         "isPartOf": {
           "@type": "WebSite",
           "name": "MelBet Partnerships",
@@ -85,13 +91,29 @@
         });
       })();
     </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9EQ8GXE5MW"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-9EQ8GXE5MW');
+      (function () {
+        const loadAnalytics = () => {
+          if (window.__melbetAnalyticsLoaded) return;
+          window.__melbetAnalyticsLoaded = true;
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-9EQ8GXE5MW';
+          document.head.appendChild(script);
+          gtag('config', 'G-9EQ8GXE5MW');
+        };
+
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadAnalytics, { timeout: 2500 });
+        } else {
+          window.addEventListener('load', () => {
+            window.setTimeout(loadAnalytics, 1200);
+          }, { once: true });
+        }
+      })();
     </script>
     <link rel="icon" href="/favicon.svg?v=1" type="image/svg+xml" />
     <link rel="shortcut icon" href="/favicon.svg?v=1" type="image/svg+xml" />
@@ -100,9 +122,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Sarala:wght@400;700&family=Tajawal:wght@400;500;700;800&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <link rel="stylesheet" href="./css/styles.css?v=19" />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Sarala:wght@400;700&family=Tajawal:wght@400;500;700;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <link rel="stylesheet" href="./css/styles.css?v=20" />
     <link rel="stylesheet" href="./css/contact.css?v=8" />
   </head>
   <body>
@@ -159,8 +189,8 @@
           <p class="section-kicker">Contact</p>
           <h1>Become a MelBet Partner</h1>
           <p class="hero-copy">
-            Fill out the application form below. Our team will review your request and contact you
-            within 24 hours.
+            Fill out the application form below. The MelBet Partnerships team reviews each request
+            and follows up, typically within 24 hours.
           </p>
         </div>
       </section>
@@ -293,7 +323,7 @@
       >
     </aside>
 
-    <script src="./js/i18n.js?v=14"></script>
+    <script src="./js/i18n.js?v=15"></script>
     <script src="./js/tracking.js?v=1"></script>
     <script src="./js/contact.js?v=17"></script>
   </body>

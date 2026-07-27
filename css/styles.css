@@ -41,11 +41,7 @@ body > * {
 }
 
 .page-ambient {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
+  display: none;
 }
 
 .page-ambient-orb,
@@ -153,9 +149,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 30;
-  background: rgba(5, 5, 5, 0.92);
+  background: rgba(5, 5, 5, 0.97);
   border-bottom: 1px solid rgba(255, 219, 36, 0.2);
-  backdrop-filter: blur(10px);
 }
 
 .header-inner {
@@ -277,7 +272,6 @@ a {
   background: rgba(255, 255, 255, 0.08);
   color: #fff6d0;
   border-color: rgba(255, 219, 36, 0.32);
-  backdrop-filter: blur(8px);
 }
 
 .btn-ghost:hover {
@@ -614,6 +608,37 @@ html[dir="rtl"] .hero-card li strong {
 
 .section-soft {
   background: linear-gradient(to bottom, transparent, rgba(255, 219, 36, 0.08) 15%, transparent);
+}
+
+.section-answer {
+  padding-top: 10px;
+}
+
+.answer-card {
+  max-width: 920px;
+  padding: 28px;
+  background: linear-gradient(160deg, rgba(24, 24, 24, 0.98), rgba(8, 8, 8, 0.98));
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.answer-card h2 {
+  margin-bottom: 18px;
+}
+
+.answer-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.answer-card p + p {
+  margin-top: 14px;
+}
+
+.answer-note,
+.contact-note {
+  color: #ece6cf;
 }
 
 .cards {
