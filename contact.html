@@ -101,10 +101,10 @@
           window.__melbetAnalyticsLoaded = true;
           const script = document.createElement('script');
           script.async = true;
-          // G-9EQ8GXE5MW is a connected GA4 destination; load its primary Google tag.
+          // G-9EQ8GXE5MW is a connected GA4 destination; initialize its primary Google tag.
           script.src = 'https://www.googletagmanager.com/gtag/js?id=G-74E6Q81VMT';
           document.head.appendChild(script);
-          gtag('config', 'G-9EQ8GXE5MW');
+          gtag('config', 'G-74E6Q81VMT');
         };
 
         if ('requestIdleCallback' in window) {
