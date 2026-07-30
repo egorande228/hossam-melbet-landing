@@ -357,6 +357,21 @@ h3 {
   max-width: 640px;
 }
 
+.page-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 0;
+  color: #ece6cf;
+  font-size: 0.9rem;
+}
+
+.page-meta strong,
+.page-meta time {
+  color: var(--text);
+}
+
 .hero-cta-stack {
   margin-top: 28px;
   display: inline-flex;
