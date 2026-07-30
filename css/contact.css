@@ -19,6 +19,10 @@
   max-width: 760px;
 }
 
+.page-meta-centered {
+  justify-content: center;
+}
+
 .partner-form {
   max-width: 900px;
   margin: 0 auto;
