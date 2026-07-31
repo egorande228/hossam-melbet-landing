@@ -86,8 +86,11 @@ if (graphValue && graphPercent) {
   const startPercent = Number(graphPercent.getAttribute('data-start')) || 25;
   const endPercent = Number(graphPercent.getAttribute('data-target')) || 50;
   let frameId = null;
+  let hasAnimated = false;
 
   const animateGraphValue = () => {
+    if (hasAnimated) return;
+    hasAnimated = true;
     if (frameId) cancelAnimationFrame(frameId);
     const duration = 2900;
     const start = performance.now();
@@ -110,6 +113,24 @@ if (graphValue && graphPercent) {
   if (reduceStartupMotion) {
     graphValue.textContent = `$${endValue.toLocaleString('en-US')}`;
     graphPercent.textContent = `${endPercent}%`;
+    hasAnimated = true;
+  } else if ('IntersectionObserver' in window) {
+    const programsSection = document.getElementById('programs');
+    if (programsSection) {
+      const graphObserver = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            animateGraphValue();
+            obs.disconnect();
+          });
+        },
+        { rootMargin: '0px 0px -15% 0px', threshold: 0.2 }
+      );
+      graphObserver.observe(programsSection);
+    } else {
+      setTimeout(animateGraphValue, 120);
+    }
   } else {
     setTimeout(animateGraphValue, 120);
   }

@@ -19,7 +19,7 @@
       content="Explore MelBet partner programs for affiliates, Teamcash agents, and e-payment partners. Compare the options and apply through the official contact page."
     />
     <meta property="og:url" content="https://paypartnersmelbet.com/" />
-    <meta property="og:image" content="https://paypartnersmelbet.com/assets/melbetlogo.png" />
+    <meta property="og:image" content="https://paypartnersmelbet.com/icon-512.png" />
     <meta property="og:image:alt" content="MelBet Partnerships" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="MelBet Partner Programs | Affiliate, Teamcash &amp; E-Payment" />
@@ -27,7 +27,7 @@
       name="twitter:description"
       content="Explore MelBet partner programs for affiliates, Teamcash agents, and e-payment partners. Compare the options and apply through the official contact page."
     />
-    <meta name="twitter:image" content="https://paypartnersmelbet.com/assets/melbetlogo.png" />
+    <meta name="twitter:image" content="https://paypartnersmelbet.com/icon-512.png" />
     <meta name="twitter:image:alt" content="MelBet Partnerships" />
     <script type="application/ld+json">
       {
@@ -35,7 +35,7 @@
         "@type": "Organization",
         "name": "MelBet Partnerships",
         "url": "https://paypartnersmelbet.com/",
-        "logo": "https://paypartnersmelbet.com/assets/melbetlogo.png",
+        "logo": "https://paypartnersmelbet.com/icon-512.png",
         "contactPoint": [
           {
             "@type": "ContactPoint",
@@ -64,7 +64,7 @@
           "@type": "Organization",
           "name": "MelBet Partnerships"
         },
-        "dateModified": "2026-07-30T06:50:00+03:00",
+        "dateModified": "2026-07-31",
         "isPartOf": {
           "@type": "WebSite",
           "name": "MelBet Partnerships",
@@ -140,21 +140,7 @@
         }
       })();
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Sarala:wght@400;700&family=Tajawal:wght@400;500;700;800&display=swap"
-      rel="preload"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Sarala:wght@400;700&family=Tajawal:wght@400;500;700;800&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
-    <link rel="stylesheet" href="./css/styles.css?v=21" />
+    <link rel="stylesheet" href="./css/styles.css?v=22" />
       <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
@@ -233,7 +219,7 @@
             <p class="page-meta">
               Reviewed by the <strong>MelBet Partnerships team</strong>
               <span aria-hidden="true">&bull;</span>
-              Last updated <time datetime="2026-07-30T06:50:00+03:00">July 30, 2026</time>
+              Last updated <time datetime="2026-07-31">July 31, 2026</time>
             </p>
             <div class="hero-inline-stats" aria-label="Partnership highlights">
               <span><strong>3</strong> partner program routes</span>
@@ -698,7 +684,30 @@
     </aside>
 
     <script src="./js/i18n-loader.js?v=1"></script>
-    <script src="./js/tracking.js?v=1"></script>
-    <script src="./js/main.js?v=10"></script>
+    <script src="./js/main.js?v=11"></script>
+    <script>
+      (function () {
+        const loadTrackingBundle = () => {
+          if (window.__melbetTrackingBundleLoaded) return;
+          window.__melbetTrackingBundleLoaded = true;
+          const script = document.createElement('script');
+          script.src = './js/tracking.js?v=2';
+          script.defer = true;
+          document.body.appendChild(script);
+        };
+
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadTrackingBundle, { timeout: 2500 });
+        } else {
+          window.addEventListener(
+            'load',
+            () => {
+              window.setTimeout(loadTrackingBundle, 900);
+            },
+            { once: true }
+          );
+        }
+      })();
+    </script>
   </body>
 </html>

@@ -8,8 +8,8 @@
   --accent-strong: #ffc400;
   --border: rgba(255, 219, 36, 0.28);
   --shadow: 0 16px 38px rgba(0, 0, 0, 0.38);
-  --font-latin: "Sarala", sans-serif;
-  --font-arabic: "Tajawal", sans-serif;
+  --font-latin: "Trebuchet MS", Verdana, sans-serif;
+  --font-arabic: Tahoma, "Segoe UI", Arial, sans-serif;
 }
 
 * {
