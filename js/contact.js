@@ -558,7 +558,13 @@ if (partnerForm) {
     return '';
   };
 
-  updatePhoneHint();
+  if (phoneInput) {
+    const localeText = getContactText();
+    const example = getPhoneExample();
+    currentPhoneExample = example;
+    phoneInput.placeholder = example;
+    phoneInput.title = formatLocalizedText(localeText.phoneTitleTemplate, { example });
+  }
   if (countryInput) {
     countryInput.addEventListener('input', updatePhoneHint);
     countryInput.addEventListener('blur', updatePhoneHint);
