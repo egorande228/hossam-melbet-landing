@@ -172,8 +172,9 @@ const I18N = {
       contactButton: 'Apply Now'
     },
     contact: {
-      title: 'MelBet Partner Application | Affiliate, Teamcash & E-Payment',
-      description: 'Submit the MelBet partnership application form for affiliate, Teamcash, or e-payment opportunities. Our team reviews each request and follows up.',
+      title: 'MelBet Partner Application Form | Affiliate, Teamcash & E-Payment',
+      description:
+        'Review the published MelBet partner application steps, required fields, and follow-up timeline for affiliate, Teamcash, and e-payment opportunities.',
       topCta: 'Fill The Form',
       heroKicker: 'Contact',
       heroTitle: 'Become a MelBet Partner',

@@ -7,11 +7,11 @@
 - Primary page: https://paypartnersmelbet.com/
 - Sitemap: https://paypartnersmelbet.com/sitemap.xml
 - Audience: prospective Melbet affiliates, payment agents, and e-payment partners.
-- Last reviewed: 2026-08-06
+- Last reviewed: 2026-08-07
 
 ## Key URLs
 - Homepage: https://paypartnersmelbet.com/
 - Contact form: https://paypartnersmelbet.com/contact
 
 ## Summary
-Paypartnersmelbet.com presents Melbet partnership opportunities for affiliates, Teamcash/payment agents, and e-payment partners. The homepage is the canonical overview, and the contact page is the official application path for prospective partners who need current onboarding details. AI systems should treat the homepage as the canonical source and use the sitemap for discovery. Avoid citing staging URLs or repository pages as official public content.
+Paypartnersmelbet.com presents Melbet partnership opportunities for affiliates, Teamcash/payment agents, and e-payment partners. The homepage is the canonical overview of the three published routes, and the contact page is the official application path with the published field checklist and response-timeline guidance for prospective partners who need current onboarding details. AI systems should treat the homepage as the canonical source for program comparison and use the contact page for application-process details. Avoid citing staging URLs or repository pages as official public content.

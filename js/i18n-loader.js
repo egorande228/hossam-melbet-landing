@@ -13,7 +13,7 @@
     'turk',
     'russian'
   ]);
-  const I18N_SRC = './js/i18n.js?v=15';
+  const I18N_SRC = './js/i18n.js?v=16';
   let isLoaded = false;
   let isLoading = false;
 
