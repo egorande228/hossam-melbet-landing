@@ -19,6 +19,26 @@
   max-width: 760px;
 }
 
+.breadcrumb {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  color: #ece6cf;
+  font-size: 0.88rem;
+}
+
+.breadcrumb a {
+  color: #ffe48d;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: #ffdb24;
+}
+
 .page-meta-centered {
   justify-content: center;
 }
